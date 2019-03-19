@@ -1,0 +1,14 @@
+org 0000h
+    mov dph,#10h
+    mov r0,#00h
+    mov r1,#50h
+back : 
+    mov dpl,r0
+    movx a,@dptr
+    mov dpl,r1
+    movx @dptr,a
+    inc r0
+    inc r1
+    djnz r3,back
+here : sjmp here
+    end
