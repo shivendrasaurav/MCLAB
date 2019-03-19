@@ -1,0 +1,15 @@
+org 0000h
+    mov r7,#10
+    mov r0,#20h
+    mov 40h,#00
+    mov 42h,#00
+back : mov a,@r0
+    add a,040h
+    da a
+    jnc next
+    inc 41h
+next : mov 40h,a
+    inc r0
+    djnz r7,back
+here : sjmp here
+    end

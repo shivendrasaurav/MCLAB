@@ -1,0 +1,19 @@
+org 0000h
+    mov r3,#6
+    mov dptr,#4000h
+    movx a,@dptr
+    mov r1,a
+nb : inc dptr
+    movx a,@dptr
+    clr c
+    mov r2,a
+    subb a,r1
+    mov a,r2
+    mov r1,a
+skip : djnz r3,nb
+    mov r3,nb
+    mov dp2,#62h
+    mov a,r1
+    movx @dptr,a
+here : sjmp here
+    end
